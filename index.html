@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AL-Muzan</title>
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, Tahoma, sans-serif;
+  background:#0f172a;
+  color:#fff;
+}
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:40px 20px;
+  text-align:center;
+}
+h1{
+  font-size:36px;
+  margin-bottom:10px;
+}
+p{
+  font-size:18px;
+  line-height:1.7;
+  opacity:.9;
+}
+.buttons{
+  margin:30px 0;
+}
+.btn{
+  display:inline-block;
+  margin:10px;
+  padding:14px 26px;
+  background:#0ea5e9;
+  color:#fff;
+  text-decoration:none;
+  border-radius:8px;
+  font-size:16px;
+}
+.btn.secondary{
+  background:#22c55e;
+}
+.lang{
+  position:fixed;
+  top:20px;
+  right:20px;
+}
+footer{
+  margin-top:60px;
+  border-top:1px solid #334155;
+  padding-top:20px;
+  font-size:14px;
+  opacity:.8;
+}
+.social a{
+  margin:0 8px;
+  color:#38bdf8;
+  text-decoration:none;
+}
+.modal{
+  display:none;
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,.8);
+}
+.modal-content{
+  background:#020617;
+  max-width:700px;
+  margin:80px auto;
+  padding:30px;
+  border-radius:10px;
+  text-align:right;
+}
+.close{
+  color:#ef4444;
+  cursor:pointer;
+  float:left;
+}
+</style>
+</head>
+
+<body>
+
+<div class="lang">
+  <button class="btn" onclick="toggleLang()">AR | EN</button>
+</div>
+
+<div class="container">
+  <h1 data-ar="AL-Muzan" data-en="AL-Muzan">AL-Muzan</h1>
+
+  <p data-ar="خدمات سفر وضيافة احترافية. حلول أعمال سياحية وتسويقية بدون تنظيم رحلات أو عمرة."
+     data-en="Professional travel and hospitality services. Tourism and marketing solutions without Umrah or tour operations.">
+     خدمات سفر وضيافة احترافية. حلول أعمال سياحية وتسويقية بدون تنظيم رحلات أو عمرة.
+  </p>
+
+  <div class="buttons">
+    <a class="btn secondary" href="https://wa.me/966555413515" target="_blank">WhatsApp</a>
+    <a class="btn" href="tel:+966555413515">Call</a>
+  </div>
+
+  <div class="social">
+    <a href="https://t.me/ALMuzan_sa" target="_blank">Telegram</a> |
+    <a href="https://www.youtube.com/@almuzan_sa" target="_blank">YouTube</a> |
+    <a href="https://tiktok.com/@almuzan.sa" target="_blank">TikTok</a> |
+    <a href="https://instagram.com/almuzan_sa" target="_blank">Instagram</a> |
+    <a href="https://x.com/almuzan_sa" target="_blank">X</a> |
+    <a href="https://facebook.com/almuzan_sa" target="_blank">Facebook</a> |
+    <a href="https://linkedin.com/in/almuzan_sa" target="_blank">LinkedIn</a>
+  </div>
+
+  <footer>
+    <p>
+      <a href="#" onclick="openPrivacy()" style="color:#38bdf8">سياسة الخصوصية | Privacy Policy</a><br><br>
+      info@AL-Muzan.com
+    </p>
+  </footer>
+</div>
+
+<div class="modal" id="privacy">
+  <div class="modal-content">
+    <span class="close" onclick="closePrivacy()">X</span>
+    <h3>سياسة الخصوصية – Privacy Policy</h3>
+    <p>
+      نحن نحترم خصوصيتك ولا نقوم بجمع أي بيانات شخصية إلا عند التواصل المباشر.
+      <br><br>
+      We respect your privacy and do not collect personal data except when you contact us directly.
+    </p>
+  </div>
+</div>
+
+<script>
+let currentLang = "ar";
+function toggleLang(){
+  currentLang = currentLang === "ar" ? "en" : "ar";
+  document.documentElement.lang = currentLang;
+  document.body.dir = currentLang === "ar" ? "rtl" : "ltr";
+  document.querySelectorAll("[data-ar]").forEach(el=>{
+    el.textContent = el.getAttribute("data-" + currentLang);
+  });
+}
+function openPrivacy(){
+  document.getElementById("privacy").style.display="block";
+}
+function closePrivacy(){
+  document.getElementById("privacy").style.display="none";
+}
+</script>
+
+</body>
+</html>
