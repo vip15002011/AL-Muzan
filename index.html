@@ -1,154 +1,171 @@
-<!DOCTYPE html>
-<html lang="ar">
+<!doctype html>
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AL-Muzan</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>AL-Muzan | Travel & Hospitality Services</title>
+<meta name="description" content="AL-Muzan Travel & Hospitality – Professional consulting, hotel bookings, service coordination, and customer support.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0b1220">
+
+<!-- Font Awesome (Icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+:root{
+--bg:#0b1220;--card:#111a2e;--text:#eef2ff;--muted:#b7c0d6;
+--gold:#d4af37;--line:rgba(255,255,255,.12);--r:18px;
+}
+*{box-sizing:border-box}
 body{
-  margin:0;
-  font-family: Arial, Tahoma, sans-serif;
-  background:#0f172a;
-  color:#fff;
+margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+background:
+radial-gradient(900px 400px at 10% 0,rgba(212,175,55,.15),transparent),
+radial-gradient(700px 400px at 100% 20%,rgba(120,160,255,.15),transparent),
+var(--bg);
+color:var(--text);line-height:1.7
 }
-.container{
-  max-width:900px;
-  margin:auto;
-  padding:40px 20px;
-  text-align:center;
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1100px;margin:auto;padding:24px 16px 70px}
+
+.top{
+display:flex;justify-content:space-between;align-items:center;gap:10px;
+border:1px solid var(--line);border-radius:var(--r);padding:14px;
+background:rgba(17,26,46,.6)
 }
-h1{
-  font-size:36px;
-  margin-bottom:10px;
+.brand{display:flex;gap:12px;align-items:center}
+.logo{
+width:42px;height:42px;border-radius:14px;
+background:linear-gradient(135deg,var(--gold),#fff);
+display:grid;place-items:center;color:#000;font-weight:900
 }
-p{
-  font-size:18px;
-  line-height:1.7;
-  opacity:.9;
-}
-.buttons{
-  margin:30px 0;
-}
+.actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .btn{
-  display:inline-block;
-  margin:10px;
-  padding:14px 26px;
-  background:#0ea5e9;
-  color:#fff;
-  text-decoration:none;
-  border-radius:8px;
-  font-size:16px;
+padding:10px 14px;border-radius:14px;border:1px solid var(--line);
+background:rgba(255,255,255,.06);cursor:pointer
 }
-.btn.secondary{
-  background:#22c55e;
+.btn.primary{border-color:var(--gold);background:rgba(212,175,55,.18)}
+
+.social-icons{display:flex;gap:14px;align-items:center}
+.social-icons a{font-size:22px;color:var(--gold);transition:.2s}
+.social-icons a:hover{color:#fff}
+
+.hero{margin-top:22px;display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+@media(max-width:900px){.hero{grid-template-columns:1fr}}
+
+.card{
+background:rgba(17,26,46,.6);border:1px solid var(--line);
+border-radius:var(--r);padding:22px
 }
-.lang{
-  position:fixed;
-  top:20px;
-  right:20px;
+h1,h2,h3{margin:0 0 10px}
+p{margin:0 0 12px;color:var(--muted)}
+
+.services{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:700px){.services{grid-template-columns:1fr}}
+
+.service{border:1px solid var(--line);border-radius:14px;padding:14px}
+
+form{display:grid;gap:10px}
+input,textarea{
+padding:12px;border-radius:14px;border:1px solid var(--line);
+background:rgba(0,0,0,.2);color:var(--text)
 }
+textarea{min-height:100px}
+
 footer{
-  margin-top:60px;
-  border-top:1px solid #334155;
-  padding-top:20px;
-  font-size:14px;
-  opacity:.8;
+margin-top:30px;text-align:center;color:var(--muted);font-size:13px
 }
-.social a{
-  margin:0 8px;
-  color:#38bdf8;
-  text-decoration:none;
-}
+footer a{color:var(--gold)}
+
 .modal{
-  display:none;
-  position:fixed;
-  top:0;left:0;
-  width:100%;height:100%;
-  background:rgba(0,0,0,.8);
+position:fixed;inset:0;background:rgba(0,0,0,.6);
+display:none;align-items:center;justify-content:center;padding:20px
 }
-.modal-content{
-  background:#020617;
-  max-width:700px;
-  margin:80px auto;
-  padding:30px;
-  border-radius:10px;
-  text-align:right;
-}
-.close{
-  color:#ef4444;
-  cursor:pointer;
-  float:left;
+.modal .box{
+max-width:800px;background:#111a2e;border-radius:18px;
+padding:20px;max-height:90vh;overflow:auto
 }
 </style>
 </head>
 
 <body>
+<div class="wrap">
 
-<div class="lang">
-  <button class="btn" onclick="toggleLang()">AR | EN</button>
-</div>
+<header class="top">
+  <div class="brand">
+    <div class="logo">AM</div>
+    <div>
+      <strong>AL-Muzan Travel & Hospitality</strong><br>
+      <small>Consulting • Hotel Bookings • Service Coordination</small>
+    </div>
+  </div>
 
-<div class="container">
-  <h1 data-ar="AL-Muzan" data-en="AL-Muzan">AL-Muzan</h1>
+  <div class="actions">
+    <div class="social-icons">
+      <a href="https://t.me/ALMuzan_sa" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+      <a href="https://www.youtube.com/@almuzan_sa" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://tiktok.com/@almuzan.sa" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://snapchat.com/add/almuzan_sa" target="_blank" aria-label="Snapchat"><i class="fab fa-snapchat"></i></a>
+      <a href="https://instagram.com/almuzan_sa" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://x.com/almuzan_sa" target="_blank" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://facebook.com/almuzan_sa" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://linkedin.com/in/almuzan_sa" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
 
-  <p data-ar="خدمات سفر وضيافة احترافية. حلول أعمال سياحية وتسويقية بدون تنظيم رحلات أو عمرة."
-     data-en="Professional travel and hospitality services. Tourism and marketing solutions without Umrah or tour operations.">
-     خدمات سفر وضيافة احترافية. حلول أعمال سياحية وتسويقية بدون تنظيم رحلات أو عمرة.
-  </p>
-
-  <div class="buttons">
-    <a class="btn secondary" href="https://wa.me/966555413515" target="_blank">WhatsApp</a>
+    <button class="btn" onclick="toggleLang()">AR | EN</button>
+    <a class="btn primary" href="https://wa.me/966555413515" target="_blank">WhatsApp</a>
     <a class="btn" href="tel:+966555413515">Call</a>
   </div>
+</header>
 
-  <div class="social">
-    <a href="https://t.me/ALMuzan_sa" target="_blank">Telegram</a> |
-    <a href="https://www.youtube.com/@almuzan_sa" target="_blank">YouTube</a> |
-    <a href="https://tiktok.com/@almuzan.sa" target="_blank">TikTok</a> |
-    <a href="https://instagram.com/almuzan_sa" target="_blank">Instagram</a> |
-    <a href="https://x.com/almuzan_sa" target="_blank">X</a> |
-    <a href="https://facebook.com/almuzan_sa" target="_blank">Facebook</a> |
-    <a href="https://linkedin.com/in/almuzan_sa" target="_blank">LinkedIn</a>
+<section class="hero">
+  <div class="card">
+    <h1 data-ar="خدمات سفر وضيافة احترافية"
+        data-en="Professional Travel & Hospitality Services">
+        خدمات سفر وضيافة احترافية
+    </h1>
+    <p data-ar="نقدم استشارات وخدمات سفر وضيافة، حجوزات فنادق، تنسيق خدمات، ودعم العملاء باحترافية."
+       data-en="We provide professional travel & hospitality consulting, hotel bookings, service coordination, and customer support.">
+       نقدم استشارات وخدمات سفر وضيافة، حجوزات فنادق، تنسيق خدمات، ودعم العملاء باحترافية.
+    </p>
+
+    <div class="services">
+      <div class="service" data-ar="استشارات السفر والضيافة" data-en="Travel & Hospitality Consulting">استشارات السفر والضيافة</div>
+      <div class="service" data-ar="حجوزات الفنادق" data-en="Hotel Bookings">حجوزات الفنادق</div>
+      <div class="service" data-ar="تنسيق خدمات السفر" data-en="Service Coordination">تنسيق خدمات السفر</div>
+      <div class="service" data-ar="دعم وخدمة العملاء" data-en="Customer Support">دعم وخدمة العملاء</div>
+    </div>
   </div>
 
-  <footer>
-    <p>
-      <a href="#" onclick="openPrivacy()" style="color:#38bdf8">سياسة الخصوصية | Privacy Policy</a><br><br>
-      info@AL-Muzan.com
-    </p>
-  </footer>
+  <div class="card">
+    <h2 data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</h2>
+    <form onsubmit="return sendWA(event)">
+      <input id="name" placeholder="الاسم / Name" required>
+      <input id="phone" placeholder="رقم الجوال / Phone" required>
+      <textarea id="msg" placeholder="تفاصيل الطلب / Request details" required></textarea>
+      <button class="btn primary">Send via WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>
+    Madinah – Saudi Arabia |
+    <a href="mailto:info@AL-Muzan.com">info@AL-Muzan.com</a> |
+    <a href="#" onclick="openPrivacy()">سياسة الخصوصية / Privacy Policy</a>
+  </p>
+  <p>© <span id="year"></span> AL-Muzan Travel & Hospitality</p>
+</footer>
+
 </div>
 
+<!-- Privacy Modal -->
 <div class="modal" id="privacy">
-  <div class="modal-content">
-    <span class="close" onclick="closePrivacy()">X</span>
-    <h3>سياسة الخصوصية – Privacy Policy</h3>
+  <div class="box">
+    <button class="btn" onclick="closePrivacy()">Close</button>
+    <h2>Privacy Policy</h2>
     <p>
-      نحن نحترم خصوصيتك ولا نقوم بجمع أي بيانات شخصية إلا عند التواصل المباشر.
-      <br><br>
-      We respect your privacy and do not collect personal data except when you contact us directly.
+      We respect your privacy. Information collected is used only to respond to inquiries
+      and provide requested services. We do not sell personal data.
     </p>
-  </div>
-</div>
-
-<script>
-let currentLang = "ar";
-function toggleLang(){
-  currentLang = currentLang === "ar" ? "en" : "ar";
-  document.documentElement.lang = currentLang;
-  document.body.dir = currentLang === "ar" ? "rtl" : "ltr";
-  document.querySelectorAll("[data-ar]").forEach(el=>{
-    el.textContent = el.getAttribute("data-" + currentLang);
-  });
-}
-function openPrivacy(){
-  document.getElementById("privacy").style.display="block";
-}
-function closePrivacy(){
-  document.getElementById("privacy").style.display="none";
-}
-</script>
-
-</body>
-</html>
